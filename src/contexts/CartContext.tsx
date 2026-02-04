@@ -1,11 +1,13 @@
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import { createContext, useContext, useState } from 'react';
+import type { ReactNode } from 'react'; // Use 'import type' for types
 import type { CartItem, Product } from '../types';
 
+// Define the return type of getCartTotal as a number
 interface CartContextType {
   cartItems: CartItem[];
   addToCart: (product: Product) => void;
   removeFromCart: (productId: number) => void;
-  getCartTotal: () => number;
+  getCartTotal: () => number; // Changed to number
   getCartItemCount: () => number;
   clearCart: () => void;
 }
@@ -35,8 +37,9 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     setCartItems([]);
   };
 
+  // FIX: Return a number, not a string. Let the display component handle formatting.
   const getCartTotal = () => {
-    return cartItems.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2);
+    return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
   };
 
   const getCartItemCount = () => {
