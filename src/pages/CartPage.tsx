@@ -23,7 +23,7 @@ export const CartPage = () => {
         ))}
       </div>
       <div className="cart-summary">
-        <h2>Total: ${getCartTotal()}</h2>
+        <h2>Total: ${getCartTotal().toFixed(2)}</h2>
         <button className="btn-checkout">Proceed to Checkout</button>
         <button onClick={clearCart} className="btn-clear-cart">Clear Cart</button>
       </div>
