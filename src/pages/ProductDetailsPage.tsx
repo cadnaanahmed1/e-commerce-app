@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom'; // Link removed
 import { fetchProductById } from '../utils/api';
 import { Spinner } from '../components/Spinner';
 import { useCart } from '../contexts/CartContext';
